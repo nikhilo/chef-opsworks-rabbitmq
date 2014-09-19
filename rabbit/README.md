@@ -1,4 +1,4 @@
-# lockbox-cookbook
+# rabbitmq-cookbook
 
 TODO: Enter the cookbook description here.
 
@@ -16,7 +16,7 @@ TODO: List your supported platforms.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['lockbox']['bacon']</tt></td>
+    <td><tt>['rabbitmq']['bacon']</tt></td>
     <td>Boolean</td>
     <td>whether to include bacon</td>
     <td><tt>true</tt></td>
@@ -25,14 +25,14 @@ TODO: List your supported platforms.
 
 ## Usage
 
-### lockbox::default
+### rabbitmq::default
 
-Include `lockbox` in your node's `run_list`:
+Include `rabbitmq` in your node's `run_list`:
 
 ```json
 {
   "run_list": [
-    "recipe[lockbox::default]"
+    "recipe[rabbitmq::default]"
   ]
 }
 ```
@@ -48,4 +48,4 @@ Include `lockbox` in your node's `run_list`:
 
 ## License and Authors
 
-Author:: YOUR_NAME (<YOUR_EMAIL>)
+Author:: Baldur Rensch (<baldur.rensch@hautelook.com>)

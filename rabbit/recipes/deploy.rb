@@ -1,13 +1,13 @@
 #
-# Cookbook Name:: lockbox
+# Cookbook Name:: rabbitmq
 # Recipe:: deploy
 #
-# Copyright (C) 2014 YOUR_NAME
+# Copyright (C) 2014 Baldur Rensch
 #
 # All rights reserved - Do Not Redistribute
 #
 
-# include_recipe "composer"
+
 # require 'securerandom'
 
 # node[:deploy].each do |application, deploy|
