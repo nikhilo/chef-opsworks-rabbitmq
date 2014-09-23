@@ -7,6 +7,40 @@
 # All rights reserved - Do Not Redistribute
 #
 
+directory "/etc/rabbitmq/ssl" do
+  owner "root"
+  group "root"
+  recursive true
+end
+
+# Install the certs
+file "/etc/rabbitmq/ssl/cacert.pem" do
+  owner "root"
+  group "root"
+  mode "0755"
+  action :create
+  content node['ssl']['cacert']
+  only_if { node['ssl']['cacert'] }
+end
+
+file "/etc/rabbitmq/ssl/cert.pem" do
+  owner "root"
+  group "root"
+  mode "0755"
+  action :create
+  content node['ssl']['cert']
+  only_if { node['ssl']['cert'] }
+end
+
+file "/etc/rabbitmq/ssl/key.pem" do
+  owner "root"
+  group "root"
+  mode "0755"
+  action :create
+  content node['ssl']['key']
+  only_if { node['ssl']['key'] }
+end
+
 # Add all rabbitmq nodes to the hosts file with their short name.
 instances = node[:opsworks][:layers][:rabbitmq][:instances]
 
@@ -29,6 +63,7 @@ rabbitmq_user "guest" do
   action :delete
 end
 
+log "Creating user: " + node['rabbitmq_cluster']['user']
 rabbitmq_user node['rabbitmq_cluster']['user'] do
   password node['rabbitmq_cluster']['password']
   action :add
@@ -67,30 +102,3 @@ bash "Restart RabbitMQ" do
     service rabbitmq-server restart
   EOH
 end
-
-# Repositories
-# include_recipe 'rabbitmq::remi'
-# include_recipe 'rabbitmq::remi-php55'
-
-# include_recipe 'php'
-
-# %w{php-pdo php-pgsql php-intl php-pecl-apcu php-mbstring php-opcache}.each do |p|
-# 	package p do
-# 		action :install
-# 	end
-# end
-
-# # This is for later refactoring. rabbitmq specific
-# package "php-ldap" do
-# 	action :install
-# end
-
-# include_recipe 'php-fpm'
-# php_fpm_pool 'www' do
-# 	user "nginx"
-# 	group "nobody"
-# 	listen_owner "nginx"
-# 	listen_group "nobody"
-# end
-
-# include_recipe 'nginx'
