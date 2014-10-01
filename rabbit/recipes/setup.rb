@@ -63,7 +63,6 @@ rabbitmq_user "guest" do
   action :delete
 end
 
-log "Creating user: " + node['rabbitmq_cluster']['user']
 rabbitmq_user node['rabbitmq_cluster']['user'] do
   password node['rabbitmq_cluster']['password']
   action :add
@@ -73,6 +72,11 @@ rabbitmq_user node['rabbitmq_cluster']['user'] do
   vhost "/"
   permissions ".* .* .*"
   action :set_permissions
+end
+
+rabbitmq_user node['rabbitmq_cluster']['user'] do
+  tag "administrator"
+  action :set_tags
 end
 
 include_recipe "rabbitmq::mgmt_console"
