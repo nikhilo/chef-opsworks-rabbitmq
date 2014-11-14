@@ -47,7 +47,12 @@ Add the networking part, and ensure that elastic IPs are assigned. We will add t
 
 ![Step 5](doc/step5.png)
 
-At this step, you can create a new instance, so that it can start up while we set up the ELB, so go ahead and create and start a new instance. 
+Also, you may want to add an EBS volume: 
+
+![Step 5a](doc/step5a.png)
+
+At this step, you can create a new instance, so that it can start up while we set up the ELB, so go ahead and create and start a new instance. _Note:_ You will want to create instances in multiple 
+availability zones if you run this in any kind of production environment. 
 
 Then click on the AWS menu in the top left and select EC2, then in the left menu "Load Balancers". Click the 
 "Create Load Balancer" button.
