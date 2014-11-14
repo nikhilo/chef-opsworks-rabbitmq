@@ -21,14 +21,14 @@ and add the following custom JSON for your stack:
         "cluster": true,
         "erlang_cookie": "<some random cookie string here>"
     },
-    "rabbitmq_cluster": {
+    "rabbit": {
         "user": "rabbit",
-        "password": "hare"
-    },
-    "ssl": {
-        "cacert": "<CA cert here>",
-        "cert": "<Server cert here>",
-        "key": "<Server key here"
+        "password": "hare",
+        "ssl": {
+            "cacert": "<CA cert here>",
+            "cert": "<Server cert here>",
+            "key": "<Server key here"
+        }
     }
 }
 ```
