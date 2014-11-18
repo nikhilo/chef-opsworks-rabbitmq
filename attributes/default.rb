@@ -10,3 +10,6 @@ override['rabbitmq']['ssl_fail_if_no_peer_cert'] = false
 
 default['rabbit']['user'] = 'rabbit'
 default['rabbit']['password'] = 'hare'
+
+default['rabbit']['domain'] = 'rabbitmq.opsworks.company.com'
+default['rabbit']['route_53_zone_id'] = nil

@@ -7,6 +7,8 @@
 # All rights reserved - Do Not Redistribute
 #
 
+include_recipe 'rabbit::register_dns'
+
 directory "/etc/rabbitmq/ssl" do
   owner "root"
   group "root"
@@ -43,8 +45,10 @@ end
 
 # Add all rabbitmq nodes to the hosts file with their short name.
 instances = node[:opsworks][:layers][:rabbitmq][:instances]
+rabbit_nodes = instances.map do |name, instance|
+  "rabbit@#{name}"
+end
 
-rabbit_nodes = instances.map{ |name, attrs| "rabbit@#{name}" }
 node.set['rabbitmq']['cluster_disk_nodes'] = rabbit_nodes
 
 include_recipe 'rabbitmq'
