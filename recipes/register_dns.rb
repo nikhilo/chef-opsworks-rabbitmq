@@ -7,6 +7,7 @@ if not node['rabbit']['route_53_zone_id'].nil?
     name record
     value node[:opsworks][:instance][:private_ip]
     type "A"
+    ttl 60 * 5 # 5 minutes
     zone_id node[:rabbit][:route_53_zone_id]
     overwrite true
     action :create
