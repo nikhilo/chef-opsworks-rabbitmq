@@ -1,6 +1,8 @@
 override['rabbitmq']['web_console_ssl'] = true
 override['rabbitmq']['web_console_ssl_port'] = 8080
 
+override['rabbitmq']['cluster_partition_handling'] = 'pause_minority'
+
 override['rabbitmq']['ssl'] = true
 override['rabbitmq']['ssl_cacert'] = '/etc/rabbitmq/ssl/cacert.pem'
 override['rabbitmq']['ssl_cert'] = '/etc/rabbitmq/ssl/cert.pem'
