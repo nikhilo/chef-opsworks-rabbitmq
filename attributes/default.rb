@@ -15,3 +15,5 @@ default['rabbit']['password'] = 'hare'
 
 default['rabbit']['domain'] = 'rabbitmq.opsworks.company.com'
 default['rabbit']['route_53_zone_id'] = nil
+
+default['route53']['fog_version'] = "1.29.0"
