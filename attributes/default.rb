@@ -11,7 +11,7 @@ override['rabbitmq']['ssl_verify'] = 'verify_none'
 override['rabbitmq']['ssl_fail_if_no_peer_cert'] = false
 
 default['rabbit']['user'] = 'rabbit'
-default['rabbit']['password'] = 'hare'
+default['rabbit']['password'] = 'Ra1HMmfkIVATgzqL8889BsbBU3csehxR'
 
 default['rabbit']['domain'] = 'rabbitmq.opsworks.company.com'
 default['rabbit']['route_53_zone_id'] = nil
